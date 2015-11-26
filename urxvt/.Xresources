@@ -1,0 +1,20 @@
+!############################################################## COLORS
+#include "/home/dan/.colors/erosionedit"
+
+!################################################################ FONT
+#define termfont       xft:Tewi:pixelsize=11:antialias=false
+URxvt.font:           termfont
+URxvt.boldFont:       termfont
+URxvt.italicFont:     termfont
+URxvt.boldItalicFont: termfont
+
+URxvt*scrollBar: false
+URxvt*internalBorder: 10
+
+Xft.antialias: 1
+Xft.autohint: 0
+Xft.dpi: 96
+Xft.hinting: 1
+Xft.hintstyle: hintfull
+Xft.lcdfilter: lcddefault
+Xft.rgba: rgb
