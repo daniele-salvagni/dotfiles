@@ -174,6 +174,9 @@ bindsym XF86AudioPause exec playerctl pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
+# Touchpad toggle
+bindsym XF86TouchpadToggle exec ~/.scripts/touchpad-toggle.sh
+
 bindsym $mod+r mode "resize"
 
 # Lock screen
