@@ -52,6 +52,26 @@ workspace() {
   # TODO: Urgent workspaces
 }
 
+thermal() {
+  # Need write permissions for /sys/devices/platform/sony-laptop/thermal_control
+  tc=$(cat /sys/devices/platform/sony-laptop/thermal_control)
+
+  icon=""
+  case $tc in
+    "silent")
+      icon=""
+      ;;
+    "balanced")
+      icon=""
+      ;;
+    "performance")
+      icon=""
+      ;;
+  esac
+
+  echo "$icon"
+}
+
 network() {
   # The following assumes 3 interfaces: loopback, ethernet, wifi
   read lo int1 int2 <<< `ip link | sed -n 's/^[0-9]: \(.*\):.*$/\1/p'`
@@ -75,13 +95,18 @@ network() {
   ip link show $eth0 | grep 'state UP' >/dev/null && int="ETH" || int="WiFi"
 
   # Send a single packet, to speed up the test. (Google DNS: 8.8.8.8)
-  #ping -c 1 8.8.8.8 >/dev/null 2>&1 && echo "connected" || echo "disconnected"
+  ping -c 1 8.8.8.8 >/dev/null 2>&1 && status="conn" || status="disc"
 
+  icon=""
   if [[ $int == "ETH" ]]; then
-    echo "%{F#504339}%{F-}"
-  else
-    echo "%{F#817267}     %{F-}"
+    icon=""
+  elif [[ $int == "WiFi" && $status == "disc" ]]; then
+    icon=""
+  elif [[ $int == "WiFi" && $status == "conn" ]]; then
+    icon=""
   fi
+
+  echo "$icon"
 }
 
 #cpu() {
@@ -187,7 +212,7 @@ battery() {
 
 # TODO: Separate bar in two (Workpaces/Icons) for different refresh rates
 while true; do
-  echo "%{l}$(workspace) %{c}$(clock) %{r}%{B-} $(network) $(volume) $(battery) %{B-}"
+  echo "%{l}$(workspace) %{c}$(clock) %{r}%{B-} $(thermal) $(network) $(volume) $(battery) %{B-}"
   sleep .2;
 done |
 lemonbar -n bar-main -p -B#FF181512 -F#817267 -g 1600x20+0+0 \
