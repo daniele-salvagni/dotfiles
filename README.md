@@ -17,4 +17,5 @@ directories on the filesystem, and makes them appear to be installed in the same
 - Terminal and bar Font: [tewi](https://github.com/lucy/tewi-font)
 - Text Editor: [neovim](https://github.com/neovim/neovim)
 - Color Scheme: [erosion-edit](http://dotshare.it/dots/847/)
+- GTK Theme: [Arc](https://github.com/horst3180/Arc-theme)
 
