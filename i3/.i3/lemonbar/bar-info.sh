@@ -17,7 +17,7 @@ thermal() {
       ;;
   esac
 
-  echo "$icon"
+  echo "%{A:sh ~/.scripts/thermal-control.sh:}$icon%{A}"
 }
 
 network() {
