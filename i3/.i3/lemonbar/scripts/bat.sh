@@ -1,7 +1,6 @@
 #!/bin/bash
 
 # BATTERY POWER
-# Notes: It is assumed that if ethernet is UP, then it has priority over wifi.
 #
 # Output format ([,],|,$ characters are not part of the output):
 # BAT: %{status:[charging|discharging|full]}%%{level:[0-100]}%
