@@ -8,12 +8,12 @@
 while :
 do
 
-  # Get the charging status (e.g. 'discharging')
-  status=$(acpi -b | awk '{gsub(/,/,""); print tolower($3)}')
   # Get the battery level (e.g. '74')
   level=$(acpi -b | awk '{gsub(/%,/,""); print $4}' | sed 's/%//g')
+  # Get the charging status (e.g. 'discharging')
+  status=$(acpi -b | awk '{gsub(/,/,""); print tolower($3)}')
 
-  echo "BAT: %{status:$status}%%{level:$level}%"
+  echo "BAT: %{level:$level}%%{status:$status}%"
 
 sleep 1s
 done
