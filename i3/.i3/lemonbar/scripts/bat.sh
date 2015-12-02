@@ -13,7 +13,7 @@ do
   # Get the charging status (e.g. 'discharging')
   status=$(acpi -b | awk '{gsub(/,/,""); print tolower($3)}')
 
-  echo "BAT: %{level:$level}%%{status:$status}%"
+  echo "BAT:%{level:$level}%%{status:$status}%"
 
 sleep 1s
 done

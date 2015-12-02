@@ -29,7 +29,7 @@ do
   # Send a single packet, to speed up the test. (Google DNS: 8.8.8.8)
   ping -c 1 8.8.8.8 >/dev/null 2>&1 && status="connected" || status="disconnected"
 
-  echo "NET: %{interface:$int}%%{status:$status}%"
+  echo "NET:%{interface:$int}%%{status:$status}%"
 
 sleep 2s
 done

@@ -22,7 +22,7 @@ do
     }' | tr -d '[%]'
   )
 
-  echo "VOL: %{volume:$volume}%%{status:$status}%"
+  echo "VOL:%{volume:$volume}%%{status:$status}%"
 
 sleep .2s
 done

@@ -13,7 +13,7 @@ do
 
   # Note: to put it back on multiple lines | awk '{print $0}' RS='-%-'
 
-  echo "WSP: %{workspaces:$workspaces}%"
+  echo "WSP:%{workspaces:$workspaces}%"
 
 sleep .2s
 done

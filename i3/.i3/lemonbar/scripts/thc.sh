@@ -10,7 +10,7 @@ do
 
   profile=$(cat /sys/devices/platform/sony-laptop/thermal_control)
 
-  echo "THC: %{profile:$profile}%"
+  echo "THC:%{profile:$profile}%"
 
 sleep .5s
 done
