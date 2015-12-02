@@ -1,2 +1,3 @@
 #!/bin/sh
-feh  --bg-scale '~/.walls/alpine-night.jpg'
+feh  --bg-scale '/home/dan/.walls/wp-fire.png'
+
