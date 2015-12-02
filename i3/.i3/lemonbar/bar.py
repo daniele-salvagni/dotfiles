@@ -1,5 +1,7 @@
 #!/usr/bin/python
 
+import re
+
 bat = { 'tag': "BAT:", 'level': "", 'status': "" }
 dat = { 'tag': "DAT:", 'timedate': "" }
 net = { 'tag': "NET:", 'interface': "", 'status': "" }
@@ -15,27 +17,44 @@ vol['regExp'] = re.compile(".*%{volume:(.*?)}%%{status:(.*?)}%.*")
 wsp['regExp'] = re.compile(".*%{workspaces:(.*?)}%.*")
 
 
-
-
-match = bat['regExp'].match(line)
-match.group(0)
-
 def parseFifo(line):
+  # Battery Level
   if line.startswith(bat["tag"]):
-    print("bat")
+    match = bat['regExp'].match(line)
+    if match is not None:
+      bat['level'] = match.group(0)
+      bat['status'] = match.group(1)
+  # Time and Date
   elif line.startswith(dat["tag"]):
-    pass
+    match = dat['regExp'].match(line)
+    if match is not None:
+      dat['timedate'] = match.group(0)
+  # Network Connection
   elif line.startswith(net["tag"]):
-    pass
+    match = net['regExp'].match(line)
+    if match is not None:
+      net['interface'] = match.group(0)
+      net['status'] = match.group(1)
+  # Thermal Control
   elif line.startswith(thc["tag"]):
-    print("thc")
+    match = bat['regExp'].match(line)
+    if match is not None:
+      bat['profile'] = match.group(0)
+  # System Volume
   elif line.startswith(vol["tag"]):
-    pass
+    match = vol['regExp'].match(line)
+    if match is not None:
+      vol['volume'] = match.group(0)
+      bat['status'] = match.group(1)
+  # Workspaces
   elif line.startswith(wsp["tag"]):
-    pass
+    match = wsp['regExp'].match(line)
+    if match is not None:
+      wsp['workspaces'] = match.group(0)
   else:
-    # Invalid string, do nothing
     pass
+
+
 
 with open("/tmp/myPipe") as fifo:
   for line in fifo:
