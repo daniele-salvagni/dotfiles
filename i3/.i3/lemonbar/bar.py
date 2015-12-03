@@ -1,24 +1,15 @@
 #!/usr/bin/env python3
 
+""" Parse data from a Named Pipe to be displayed on lemonbar. """
+
 import re
+
+# ===================================================================== SETTINGS
 
 BG_COLOR = '982c2c'
 FG_COLOR = 'b49f85'
 
-bat = { 'tag': "BAT:", 'level': "", 'status': "" }
-dat = { 'tag': "DAT:", 'timedate': "" }
-net = { 'tag': "NET:", 'interface': "", 'status': "" }
-thc = { 'tag': "THC:", 'profile': "" }
-vol = { 'tag': "VOL:", 'volume': "", 'status': "" }
-wsp = { 'tag': "WSP:", 'workspaces': "" }
-
-bat['regExp'] = re.compile(".*%{level:(.*?)}%%{status:(.*?)}%.*")
-dat['regExp'] = re.compile(".*%{timedate:(.*?)}%.*")
-net['regExp'] = re.compile(".*%{interface:(.*?)}%%{status:(.*?)}%.*")
-thc['regExp'] = re.compile(".*%{profile:(.*?)}%.*")
-vol['regExp'] = re.compile(".*%{volume:(.*?)}%%{status:(.*?)}%.*")
-wsp['regExp'] = re.compile(".*%{workspaces:(.*?)}%.*")
-
+# ====================================================================== METHODS
 
 def levelBar(eColor, level):
   """ Create a text based level bar """
@@ -36,7 +27,7 @@ def levelBar(eColor, level):
 
   return bar
 
-
+# =================================================================== COMPONENTS
 
 class Component:
   def __init__(self):
@@ -205,6 +196,7 @@ class Thc(Component):
     return self.parsed
 
 
+
 class Vol(Component):
   """ SYSTEM AUDIO """
   regExp = re.compile('.*%{volume:(.*?)}%%{status:(.*?)}%.*')
@@ -293,7 +285,7 @@ class Wsp(Component):
     """ Return the parsed data """
     return self.parsed
 
-
+# ========================================================================= MAIN
 
 def main():
   components = [ Bat(), Dat(), Net(), Thc(), Vol(), Wsp() ]
