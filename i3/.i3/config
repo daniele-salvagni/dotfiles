@@ -225,5 +225,5 @@ gaps outer 0
 #}
 
 
-exec_always sh ~/.i3/lemonbar/bar.sh &
+exec sh ~/.i3/lemonbar/run.sh &
 exec compton -f -D 7
