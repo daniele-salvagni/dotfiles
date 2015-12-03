@@ -2,7 +2,7 @@
 
 """ Parse data from a Named Pipe to be displayed on lemonbar. """
 
-import re
+import re, sys
 
 # ===================================================================== SETTINGS
 
@@ -77,7 +77,7 @@ class Bat(Component):
     if self.status != 'discharging' and self.level == 100:
       bar = ''
     else:
-      bar = levelBar('504339', self.level)
+      bar = levelBar('504339', self.level) + ' '
 
     # The parsed text that will be displayed
     self.parsed = icon + ' ' + bar
@@ -183,13 +183,13 @@ class Thc(Component):
     icon = ""
     if self.profile == 'silent':
       icon=''
-    elif self.profile == 'silent':
+    elif self.profile == 'balanced':
       icon=''
-    elif self.profile == 'silent':
+    elif self.profile == 'performance':
       icon=''
 
     # The parsed text that will be displayed
-    self.parsed = icon
+    self.parsed = '%{A:sh ~/.scripts/thermal-control.sh:}' + icon + '%{A}'
 
   def __str__(self):
     """ Return the parsed data """
@@ -254,6 +254,10 @@ class Wsp(Component):
   regExp = re.compile('.*%{workspaces:(.*?)}%.*')
   tag = 'WSP:'
 
+  # Scrollwheel events (previous/next)
+  wsnext="%{A4:i3-msg workspace next_on_output:}"
+  wsprev="%{A5:i3-msg workspace prev_on_output:}"
+
   def __init__(self):
     """ Initialize some dummy data to be displayed if nothing has been read from
     the pipe
@@ -279,7 +283,7 @@ class Wsp(Component):
       else:
         parsed += '%{A:i3-msg workspace ' + ws[1:] + ':} ' + ws[3:] + ' %{A}'
 
-    self.parsed = parsed
+    self.parsed = self.wsnext + self.wsprev + parsed + '%{A}%{A}'
 
   def __str__(self):
     """ Return the parsed data """
@@ -287,17 +291,31 @@ class Wsp(Component):
 
 # ========================================================================= MAIN
 
+def compose(comp):
+  return '%{l}' + str(comp[5]) + '%{c}' + str(comp[1]) + '%{r}' + \
+         str(comp[3]) + ' ' + str(comp[2]) + ' ' + str(comp[4]) + ' ' + \
+         str(comp[0]) +  '%{B-}'
+
 def main():
   components = [ Bat(), Dat(), Net(), Thc(), Vol(), Wsp() ]
-  with open("/tmp/myPipe") as fifo:
+  with open("/tmp/myPipe", 'r') as fifo:
     for line in fifo:
       for component in components:
         if component.tag == line[:4]:
           component.update(line)
-          print(component)
+          print(compose(components))
 
 
+
+def main2():
+  components = [ Bat(), Dat(), Net(), Thc(), Vol(), Wsp() ]
+  for line in sys.stdin:
+    for component in components:
+        if component.tag == line[:4]:
+          component.update(line)
+          print(compose(components))
+          sys.stdout.flush()
 
 if __name__ == "__main__":
-  main()
+  main2()
 
