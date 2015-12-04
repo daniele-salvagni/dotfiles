@@ -296,18 +296,8 @@ def compose(comp):
          str(comp[3]) + ' ' + str(comp[2]) + ' ' + str(comp[4]) + ' ' + \
          str(comp[0]) +  '%{B-}'
 
+
 def main():
-  components = [ Bat(), Dat(), Net(), Thc(), Vol(), Wsp() ]
-  with open("/tmp/myPipe", 'r') as fifo:
-    for line in fifo:
-      for component in components:
-        if component.tag == line[:4]:
-          component.update(line)
-          print(compose(components))
-
-
-
-def main2():
   components = [ Bat(), Dat(), Net(), Thc(), Vol(), Wsp() ]
   for line in sys.stdin:
     for component in components:
@@ -316,6 +306,6 @@ def main2():
           print(compose(components))
           sys.stdout.flush()
 
-if __name__ == "__main__":
-  main2()
 
+if __name__ == "__main__":
+  main()
