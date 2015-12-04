@@ -180,7 +180,7 @@ bindsym XF86TouchpadToggle exec ~/.scripts/touchpad-toggle.sh
 bindsym $mod+r mode "resize"
 
 # Lock screen
-bindsym $mod+x exec .i3/lock.sh
+bindsym $mod+x exec .scripts/lockscreen.sh
 
 
 
