@@ -1,6 +1,10 @@
 # Dan's Dotfiles
 
-~~~ WIP ~~~
+![Empty workspace](https://github.com/daniele-salvagni/dotfiles/blob/master/screens/screen1.png)
+
+This is the configuration I use for my laptop, which runs the
+**[i3-gaps window manager](https://github.com/Airblader/i3)** (a fork of i3) on
+**[Arch Linux](https://www.archlinux.org/)**.
 
 ## Setup
 
