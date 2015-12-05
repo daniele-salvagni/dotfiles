@@ -278,10 +278,14 @@ class Wsp(Component):
     parsed = ''
     for ws in self.workspaces:
       if ws[0] == '*':
-        parsed += '%{B#' + FG_COLOR + '}%{F#' + BG_COLOR + '} ' + ws[3:] + \
+        # Remove the status and number prefix from the workspace name, e.g.:
+        # -4=Workspace number 4
+        # *10=Workspace number 10 (current)
+        _ws = re.sub('^[-*]\d+=', '', ws)
+        parsed += '%{B#' + FG_COLOR + '}%{F#' + BG_COLOR + '} ' + _ws + \
                   ' %{F-}%{B-}'
       else:
-        parsed += '%{A:i3-msg workspace ' + ws[1:] + ':} ' + ws[3:] + ' %{A}'
+        parsed += '%{A:i3-msg workspace ' + ws[1:] + ':} ' + _ws + ' %{A}'
 
     self.parsed = self.wsnext + self.wsprev + parsed + '%{A}%{A}'
 
