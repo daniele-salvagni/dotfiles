@@ -277,11 +277,11 @@ class Wsp(Component):
     """ Parse the data to be displayed on lemonbar """
     parsed = ''
     for ws in self.workspaces:
+      # Remove the status and number prefix from the workspace name, e.g.:
+      # -4=Workspace number 4
+      # *10=Workspace number 10 (current)
+      _ws = re.sub('^[-*]\d+=', '', ws)
       if ws[0] == '*':
-        # Remove the status and number prefix from the workspace name, e.g.:
-        # -4=Workspace number 4
-        # *10=Workspace number 10 (current)
-        _ws = re.sub('^[-*]\d+=', '', ws)
         parsed += '%{B#' + FG_COLOR + '}%{F#' + BG_COLOR + '} ' + _ws + \
                   ' %{F-}%{B-}'
       else:
