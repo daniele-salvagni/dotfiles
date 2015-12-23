@@ -15,6 +15,6 @@ do
 
   echo "WSP:%{workspaces:$workspaces}%"
 
-sleep .2s
+sleep .35s
 done
 

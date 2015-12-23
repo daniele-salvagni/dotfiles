@@ -24,6 +24,6 @@ do
 
   echo "VOL:%{volume:$volume}%%{status:$status}%"
 
-sleep .2s
+sleep 1s
 done
 
