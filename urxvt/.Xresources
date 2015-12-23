@@ -1,5 +1,5 @@
 !############################################################## COLORS
-#include "/home/dan/.colors/erosionedit"
+#include "/home/dan/.colors/gruvbox"
 
 !################################################################ FONT
 #define termfont       xft:Tewi:pixelsize=11:antialias=false
