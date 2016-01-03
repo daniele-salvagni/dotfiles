@@ -1,0 +1,10 @@
+[user]
+  name = Daniele Salvagni
+  email = daniele.salvagni@gmail.com
+[credential "https://github.com"]
+  username = daniele-salvagni
+[core]
+  editor = nano
+[alias]
+  stat = status -sb
+  last = log -1 --stat
