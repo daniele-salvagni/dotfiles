@@ -5,5 +5,4 @@ exec sh ~/.scripts/wallpaper.sh &
 exec xrdb .Xresources &
 
 ## Start i3-gaps
-exec i3
-
+exec dbus-launch --exit-with-session i3
