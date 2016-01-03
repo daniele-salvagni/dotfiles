@@ -175,7 +175,7 @@ bindsym XF86TouchpadToggle exec ~/.scripts/touchpad-toggle.sh
 bindsym $mod+r mode "resize"
 
 # Lock screen
-bindsym $mod+x exec .scripts/lockscreen.sh
+bindsym $mod+x exec --no-startup-id .scripts/lockscreen.sh
 
 # ======================================================================= STYLE
 
@@ -230,5 +230,6 @@ gaps outer 0
 
 # ======================================================================== EXEC
 
-exec sh ~/.i3/lemonbar/run.sh &
-exec compton -f -D 7
+exec_always pkill -f lemonbar
+exec_always --no-startup-id sh ~/.i3/lemonbar/run.sh &
+exec --no-startup-id compton -f -D 7
