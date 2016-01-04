@@ -1,8 +1,8 @@
 # Dan's Dotfiles
 
-![Empty workspace](https://github.com/daniele-salvagni/dotfiles/blob/master/screens/2015-12-04-clean.png)
+![Empty workspace](screens/2015-12-04-clean.png)
 
-![Lockscreen](https://github.com/daniele-salvagni/dotfiles/blob/master/screens/2015-12-04-lock.png)
+![Lockscreen](screens/2015-12-04-lock.png)
 
 This is the configuration I use for my laptop, which runs the
 **[i3-gaps window manager](https://github.com/Airblader/i3)** (a fork of i3) on
@@ -24,4 +24,3 @@ directories on the filesystem, and makes them appear to be installed in the same
 - Text Editor: [neovim](https://github.com/neovim/neovim)
 - Color Scheme: [erosion-edit](http://dotshare.it/dots/847/)
 - GTK Theme: [Arc](https://github.com/horst3180/Arc-theme)
-
