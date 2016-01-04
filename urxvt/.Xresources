@@ -1,13 +1,14 @@
-!############################################################## COLORS
+!Colors
 #include "/home/dan/.colors/gruvbox"
 
-!################################################################ FONT
+!Font
 #define termfont       xft:Tewi:pixelsize=11:antialias=false
 URxvt.font:           termfont
 URxvt.boldFont:       termfont
 URxvt.italicFont:     termfont
 URxvt.boldItalicFont: termfont
 
+!Style
 URxvt*scrollBar: false
 URxvt*internalBorder: 10
 

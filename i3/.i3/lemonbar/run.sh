@@ -1,5 +1,7 @@
 #!/bin/bash
 
+pkill lemonbar
+
 font1="tewi:pixelsize=10:antialias=true"
 font2="siji:pixelsize=11"
 bg_color="#982c2c"

@@ -230,6 +230,5 @@ gaps outer 0
 
 # ======================================================================== EXEC
 
-exec_always pkill -f lemonbar
 exec_always --no-startup-id sh ~/.i3/lemonbar/run.sh &
 exec --no-startup-id compton -f -D 7
