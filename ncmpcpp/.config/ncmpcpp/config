@@ -47,7 +47,7 @@ visualizer_in_stereo = yes
 
 ## Multiply received samples by given value. Very useful for proper
 ## visualization of quiet music.
-#visualizer_sample_multiplier = 1
+visualizer_sample_multiplier = 2.5
 
 ## Note: Below parameter defines how often ncmpcpp has to "synchronize"
 ## visualizer and audio outputs. 30 seconds is optimal value, but if you
