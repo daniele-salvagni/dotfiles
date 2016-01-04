@@ -1,8 +1,8 @@
 # Dan's Dotfiles
 
-![Empty workspace](https://github.com/daniele-salvagni/dotfiles/blob/master/screens/screen1.png)
+![Empty workspace](https://github.com/daniele-salvagni/dotfiles/blob/master/screens/2015-12-04-clean.png)
 
-![Lockscreen](https://github.com/daniele-salvagni/dotfiles/blob/master/screens/screen2.png)
+![Lockscreen](https://github.com/daniele-salvagni/dotfiles/blob/master/screens/2015-12-04-lock.png)
 
 This is the configuration I use for my laptop, which runs the
 **[i3-gaps window manager](https://github.com/Airblader/i3)** (a fork of i3) on
