@@ -1,10 +1,18 @@
 #! /bin/bash
 
-## Set the background.
-sh ~/.scripts/wallpaper.sh &
+## Fonts
+xset +fp ~/.fonts
+xset +fp /usr/share/fonts/local 
+xset fp rehash
 
 ## Load X resources if file exists
 [[ -f ~/.Xresources ]] && xrdb ~/.Xresources
+
+## Set the wallpaper
+sh ~/.scripts/wallpaper.sh &
+
+## Run devmon in background
+devmon &
 
 ## Start i3-gaps
 exec dbus-launch --exit-with-session i3
