@@ -6,7 +6,7 @@ xset +fp /usr/share/fonts/local
 xset fp rehash
 
 ## Load X resources if file exists
-[[ -f ~/.Xresources ]] && xrdb ~/.Xresources
+[[ -f ~/.Xresources ]] && xrdb -merge ~/.Xresources
 
 ## Set the wallpaper
 sh ~/.scripts/wallpaper.sh &
