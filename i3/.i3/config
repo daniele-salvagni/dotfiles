@@ -182,11 +182,11 @@ bindsym $mod+x exec --no-startup-id .scripts/lockscreen.sh
 # Windows decoration styles
 # class                 border  backgr. text    indicator
 client.focused          #333333 #b8bb26 #ffffff #b8bb26
-client.focused_inactive #333333 #b49f85 #ffffff #b49f85
-client.unfocused        #333333 #b49f85 #ffffff #b49f85
+client.focused_inactive #333333 #8e8e8e #ffffff #8e8e8e
+client.unfocused        #333333 #8e8e8e #ffffff #8e8e8e
 client.urgent           #333333 #cc241d #ffffff #cc241d
-client.placeholder      #333333 #b49f85 #ffffff #b49f85
-client.background       #b49f85
+client.placeholder      #333333 #8e8e8e #ffffff #8e8e8e
+client.background       #8e8e8e
 
 # ======================================================================== GAPS
 

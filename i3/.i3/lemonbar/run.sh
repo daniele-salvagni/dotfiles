@@ -18,4 +18,4 @@ mkfifo $fifo
 /home/dan/.i3/lemonbar/components/vol.sh > $fifo &
 /home/dan/.i3/lemonbar/components/wsp.sh > $fifo &
 
-cat $fifo | .i3/lemonbar/bar.py | lemonbar -n bar-main -p -B#982c2c -F#b49f85 -g 1600x20+0+0 -f 'tewi:pixelsize=10:antialias=true' -f 'siji:pixelsize=11' | bash
+cat $fifo | .i3/lemonbar/bar.py | lemonbar -n bar-main -p -B#4a4a4a -F#8e8e8e -g 1600x20+0+0 -f 'tewi:pixelsize=10:antialias=true' -f 'siji:pixelsize=11' | bash
