@@ -1,6 +1,6 @@
 # Dan's Dotfiles
 
-![Empty workspace](screens/2015-12-04-clean.png)
+![Empty workspace](screens/2015-02-12-clean.png)
 
 ![Lockscreen](screens/2015-12-04-lock.png)
 
