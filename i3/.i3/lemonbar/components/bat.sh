@@ -15,6 +15,6 @@ do
 
   echo "BAT:%{level:$level}%%{status:$status}%"
 
-sleep 1s
+sleep 10s
 done
 

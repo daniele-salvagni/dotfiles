@@ -12,6 +12,6 @@ do
 
   echo "THC:%{profile:$profile}%"
 
-sleep .5s
+sleep 2s
 done
 

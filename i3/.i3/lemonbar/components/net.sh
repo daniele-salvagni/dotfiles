@@ -31,6 +31,6 @@ do
 
   echo "NET:%{interface:$int}%%{status:$status}%"
 
-sleep 2s
+sleep 5s
 done
 
