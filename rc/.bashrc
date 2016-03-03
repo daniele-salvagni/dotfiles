@@ -15,3 +15,5 @@ PATH="$(ruby -e 'print Gem.user_dir')/bin:$PATH"
 if [ -d "$HOME/bin" ] ; then
     PATH="$HOME/bin:$PATH"
 fi
+
+alias please='sudo $(fc -ln -1)'
