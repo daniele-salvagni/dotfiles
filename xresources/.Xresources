@@ -1,5 +1,5 @@
 !Colors
-#include "/home/dan/.colors/gruvbox"
+#include "/home/dan/.colors/custom"
 
 !Font
 #define termfont       xft:Tewi:pixelsize=11:antialias=false
